@@ -1,0 +1,37 @@
+@page
+@model Code1stUsersRoles.Pages.UserModel
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<h2>User Management</h2>
+
+<h3>Existing Users</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Roles</th>
+            <th>User Name</th>
+            <th>Email</th>
+            @* <th>Actions</th> *@
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.UsersWithRoles)
+    {
+        <tr>
+            <td>@string.Join(", ", item.Roles)</td>
+            <td>@item.User.UserName</td>
+            <td>@item.User.Email</td>
+            
+            <td>
+                <a asp-page="/EditRole" asp-route-userId="@item.User.Id">Edit</a> |
+                <form method="post" asp-page-handler="Delete" asp-route-userId="@item.User.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-link" style="padding: 0; border: none; background: none;">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

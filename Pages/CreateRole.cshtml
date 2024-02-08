@@ -1,0 +1,23 @@
+@page
+@model CreateRoleModel
+
+<h2>Create Role</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Role.Name">Role Name</label>
+        <input asp-for="Role.Name" />
+        <span asp-validation-for="Role.Name"></span>
+    </div>
+    <div>
+        <label asp-for="Role.Description">Description</label>
+        <input asp-for="Role.Description" />
+        <span asp-validation-for="Role.Description"></span>
+    </div>
+    <div>
+        <label asp-for="Role.CreatedDate">Created Date</label>
+        <input asp-for="Role.CreatedDate" />
+        <span asp-validation-for="Role.CreatedDate"></span>
+    </div>
+    <button type="submit">Create</button>
+</form>
